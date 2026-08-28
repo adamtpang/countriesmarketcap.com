@@ -12,6 +12,27 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid #f0b90b;
+  outline-offset: 3px;
+}
+
+.info-content h2 {
+  @apply text-xl font-semibold text-white;
+}
+
+.info-content p {
+  @apply mt-3 leading-7 text-muted;
+}
+
+.info-content a {
+  @apply rounded-sm text-accent underline decoration-accent/40 underline-offset-4 hover:text-white;
+}
+
+.info-content ul {
+  @apply mt-3 list-disc space-y-2 pl-5 leading-7 text-muted;
+}
+
 .tabular {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";

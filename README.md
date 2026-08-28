@@ -4,7 +4,7 @@ The CoinMarketCap of nation-states. Countries ranked by total market cap (nation
 
 ## Stack
 
-- Next.js 15 (App Router)
+- Next.js 16 (App Router)
 - React 19
 - Tailwind CSS 3
 - Deployed on Vercel
@@ -17,6 +17,16 @@ npm run dev
 ```
 
 Open http://localhost:3000.
+
+## Verify
+
+```bash
+npm test
+npm run typecheck
+npm run lint
+npm run build
+npm audit
+```
 
 ## Data
 

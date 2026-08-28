@@ -6,18 +6,26 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <header className="mb-8 border-b border-border pb-6">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-2xl">
-            🌍
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-2xl">
+              🌍
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                Countries Market Cap
+              </h1>
+              <p className="text-sm text-muted">
+                The CoinMarketCap of nation-states — ranked by national net wealth.
+              </p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              Countries Market Cap
-            </h1>
-            <p className="text-sm text-muted">
-              The CoinMarketCap of nation-states — ranked by national net wealth.
-            </p>
-          </div>
+          <a
+            className="inline-flex w-fit items-center justify-center rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-bg transition-colors hover:bg-white"
+            href="#country-rankings"
+          >
+            Start exploring the rankings
+          </a>
         </div>
       </header>
 
@@ -28,7 +36,12 @@ export default function Home() {
         <Stat label="Wealth / GDP" value={`${(TOTALS.marketCap / TOTALS.gdp).toFixed(2)}x`} hint="Aggregate ratio" />
       </section>
 
-      <CountryTable countries={COUNTRIES} />
+      <section id="country-rankings" aria-labelledby="country-rankings-heading" className="scroll-mt-6">
+        <h2 id="country-rankings-heading" className="mb-4 text-xl font-semibold text-white">
+          Country rankings
+        </h2>
+        <CountryTable countries={COUNTRIES} />
+      </section>
 
       <section className="mt-12 rounded-lg border border-border bg-panel/40 p-5 text-sm text-muted">
         <h2 className="mb-2 text-base font-medium text-white">Methodology</h2>
@@ -47,10 +60,6 @@ export default function Home() {
           Figures are approximations for ranking purposes — not financial advice.
         </p>
       </section>
-
-      <footer className="mt-10 border-t border-border pt-6 text-center text-xs text-muted">
-        countriesmarketcap.com · think of a country as a balance sheet
-      </footer>
     </main>
   );
 }

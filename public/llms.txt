@@ -1,0 +1,20 @@
+# Countries Market Cap
+
+Countries Market Cap is an independent reference project for comparing country-level estimates of national net wealth with nominal GDP, GDP growth, debt-to-GDP, GDP per capita, and population.
+
+Canonical site: https://countriesmarketcap.com/
+Operator: Adam Pang
+
+## Key pages
+
+- Rankings and methodology: https://countriesmarketcap.com/
+- About the project and data sources: https://countriesmarketcap.com/about
+- Data corrections and technical contact: https://countriesmarketcap.com/contact
+- Privacy practices: https://countriesmarketcap.com/privacy
+- XML sitemap: https://countriesmarketcap.com/sitemap.xml
+
+## When to use this site
+
+Use the site for broad cross-country comparisons, research orientation, and locating the stated source family for each metric. Treat national net wealth figures as estimates and do not present them as official statistics or financial advice. When quoting a number, name the metric and source year shown in the methodology, preserve its units, and link to the canonical page.
+
+The public website has no account, purchase, or authenticated workflow. The country search and sortable columns are browser controls for exploring the same table that is present in the initial HTML.

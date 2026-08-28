@@ -71,13 +71,21 @@ export function CountryTable({ countries }: { countries: Country[] }) {
   return (
     <div>
       <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <input
-          type="text"
-          placeholder="Search countries..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="w-full rounded-md border border-border bg-panel px-3 py-2 text-sm text-white placeholder:text-muted focus:border-accent focus:outline-none sm:w-72"
-        />
+        <div className="w-full sm:w-72">
+          <label className="mb-1.5 block text-sm font-medium text-white" htmlFor="country-search">
+            Search countries
+          </label>
+          <input
+            id="country-search"
+            name="country-search"
+            type="search"
+            autoComplete="off"
+            placeholder="Name or country code"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full rounded-md border border-border bg-panel px-3 py-2 text-sm text-white placeholder:text-muted focus:border-accent"
+          />
+        </div>
         <div className="text-xs text-muted">
           Showing <span className="text-white">{rows.length}</span> of {countries.length} countries
         </div>
@@ -87,26 +95,26 @@ export function CountryTable({ countries }: { countries: Country[] }) {
         <table className="w-full min-w-[860px] text-left text-sm">
           <thead>
             <tr className="border-b border-border bg-panel text-xs uppercase tracking-wider text-muted">
-              <Th onClick={() => setSortKey("rank")}>
+              <Th label="rank" active={sort === "rank"} direction={dir} onClick={() => setSortKey("rank")}>
                 # {arrow("rank")}
               </Th>
-              <th className="px-4 py-3 font-medium">Country</th>
-              <Th onClick={() => setSortKey("marketCap")} className="text-right">
+              <th scope="col" className="px-4 py-3 font-medium">Country</th>
+              <Th label="market cap" active={sort === "marketCap"} direction={dir} onClick={() => setSortKey("marketCap")} className="text-right">
                 Market Cap {arrow("marketCap")}
               </Th>
-              <Th onClick={() => setSortKey("gdp")} className="text-right">
+              <Th label="GDP" active={sort === "gdp"} direction={dir} onClick={() => setSortKey("gdp")} className="text-right">
                 GDP {arrow("gdp")}
               </Th>
-              <Th onClick={() => setSortKey("gdpGrowth")} className="text-right">
+              <Th label="GDP growth" active={sort === "gdpGrowth"} direction={dir} onClick={() => setSortKey("gdpGrowth")} className="text-right">
                 GDP Growth {arrow("gdpGrowth")}
               </Th>
-              <Th onClick={() => setSortKey("gdpPerCapita")} className="text-right">
+              <Th label="GDP per capita" active={sort === "gdpPerCapita"} direction={dir} onClick={() => setSortKey("gdpPerCapita")} className="text-right">
                 GDP / Capita {arrow("gdpPerCapita")}
               </Th>
-              <Th onClick={() => setSortKey("debtToGdp")} className="text-right">
+              <Th label="debt to GDP" active={sort === "debtToGdp"} direction={dir} onClick={() => setSortKey("debtToGdp")} className="text-right">
                 Debt / GDP {arrow("debtToGdp")}
               </Th>
-              <Th onClick={() => setSortKey("population")} className="text-right">
+              <Th label="population" active={sort === "population"} direction={dir} onClick={() => setSortKey("population")} className="text-right">
                 Population {arrow("population")}
               </Th>
             </tr>
@@ -156,19 +164,33 @@ export function CountryTable({ countries }: { countries: Country[] }) {
 
 function Th({
   children,
+  label,
+  active,
+  direction,
   onClick,
   className = "",
 }: {
   children: React.ReactNode;
+  label: string;
+  active: boolean;
+  direction: "asc" | "desc";
   onClick: () => void;
   className?: string;
 }) {
   return (
     <th
-      onClick={onClick}
-      className={`cursor-pointer select-none px-4 py-3 font-medium hover:text-white ${className}`}
+      scope="col"
+      aria-sort={active ? (direction === "asc" ? "ascending" : "descending") : "none"}
+      className={`px-4 py-3 font-medium ${className}`}
     >
-      {children}
+      <button
+        type="button"
+        aria-label={`Sort by ${label}${active ? `, currently ${direction === "asc" ? "ascending" : "descending"}` : ""}`}
+        onClick={onClick}
+        className={`inline-flex w-full cursor-pointer select-none items-center gap-1 rounded-sm hover:text-white ${className.includes("text-right") ? "justify-end" : "justify-start"}`}
+      >
+        {children}
+      </button>
     </th>
   );
 }
