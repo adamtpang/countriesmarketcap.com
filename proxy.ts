@@ -10,7 +10,7 @@ export function proxy(request: NextRequest) {
     style-src 'self' 'nonce-${nonce}';
     img-src 'self' data:;
     font-src 'self';
-    connect-src 'self';
+    connect-src 'self' https://us.i.posthog.com;
     manifest-src 'self';
     media-src 'none';
     object-src 'none';

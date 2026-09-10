@@ -1,3 +1,4 @@
+import SiteAnalytics from './SiteAnalytics';
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -70,6 +71,7 @@ export default async function RootLayout({
         />
         {children}
         <SiteFooter />
+        <SiteAnalytics />
       </body>
     </html>
   );

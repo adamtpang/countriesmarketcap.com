@@ -12,15 +12,16 @@ export default function PrivacyPage() {
   return (
     <InfoPage
       title="Privacy policy"
-      introduction="This policy describes the current public website at countriesmarketcap.com. It was last updated on August 28, 2026."
+      introduction="This policy describes the current public website at countriesmarketcap.com. It was last updated on September 10, 2026."
     >
       <section>
         <h2>Information collected by this site</h2>
         <p>
-          Countries Market Cap does not provide user accounts, accept payments, run advertising, embed analytics trackers, or intentionally set application cookies. The country search runs in the visitor&apos;s browser and is not submitted to a Countries Market Cap server. The site has no contact form and does not collect the text visitors type into the search field.
+          Countries Market Cap does not provide user accounts, accept payments, run advertising, or intentionally set application cookies. The country search runs in the visitor&apos;s browser and is not submitted to a Countries Market Cap server. The site has no contact form and does not collect the text visitors type into the search field.
         </p>
       </section>
       <section>
+        <h2>Public-page analytics</h2><p>We use cookieless PostHog analytics to count public pageviews across our sites. Session replay, automatic click capture and identified profiles are disabled. We exclude search text, URL queries, fragments and referrers. A site identifier separates this site in the shared dashboard. See <a href="https://posthog.com/privacy">PostHog privacy information</a>.</p></section><section>
         <h2>Hosting and operational data</h2>
         <p>
           Vercel hosts and delivers the site. Like other web hosting providers, Vercel receives technical request data needed to serve and protect the website, which can include an IP address, requested URL, timestamp, referrer, and browser user-agent. Vercel processes that data under its own privacy and security practices; Countries Market Cap does not sell that request data.
